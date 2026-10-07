@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reports - Hostel & PG Management</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+
+    <h2>Reports</h2>
+
+    <hr>
+
+    <h3>System Summary</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Category</th>
+            <th>Total</th>
+        </tr>
+
+        <tr>
+            <td>Total Students</td>
+            <td>{{ student_count }}</td>
+        </tr>
+
+        <tr>
+            <td>Total Rooms</td>
+            <td>{{ room_count }}</td>
+        </tr>
+
+        <tr>
+            <td>Total Fees</td>
+            <td>{{ fee_count }}</td>
+        </tr>
+
+        <tr>
+            <td>Total Complaints</td>
+            <td>{{ complaint_count }}</td>
+        </tr>
+
+        <tr>
+            <td>Pending Complaints</td>
+            <td>{{ pending_complaints }}</td>
+        </tr>
+
+        <tr>
+            <td>Resolved Complaints</td>
+            <td>{{ resolved_complaints }}</td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>

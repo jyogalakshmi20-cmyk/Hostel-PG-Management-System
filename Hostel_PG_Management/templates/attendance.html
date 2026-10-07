@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hostel Attendance</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+    <h2>Hostel Attendance</h2>
+
+    <hr>
+
+    <h3>Mark Attendance</h3>
+
+    <form method="POST" action="/attendance">
+
+        <label>Student Name:</label><br>
+        <input type="text" name="student_name" required>
+
+        <br><br>
+
+        <label>Room Number:</label><br>
+        <input type="text" name="room_no" required>
+
+        <br><br>
+
+        <label>Date:</label><br>
+        <input type="date" name="date" required>
+
+        <br><br>
+
+        <label>Status:</label><br>
+
+        <select name="status" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Mark Attendance</button>
+
+    </form>
+
+    <hr>
+
+    <h3>Attendance History</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Room Number</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for record in records %}
+
+        <tr>
+            <td>{{ record["id"] }}</td>
+            <td>{{ record["student_name"] }}</td>
+            <td>{{ record["room_no"] }}</td>
+            <td>{{ record["date"] }}</td>
+            <td>{{ record["status"] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">
+        <button>Back to Dashboard</button>
+    </a>
+
+</body>
+</html>

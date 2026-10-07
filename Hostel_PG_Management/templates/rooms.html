@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rooms - Hostel & PG Management</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+    <h2>Room Management</h2>
+
+    <hr>
+
+    <h3>Add Room</h3>
+
+    <form method="POST" action="/add_room">
+
+        <label>Room Number:</label><br>
+        <input type="text" name="room_no" required><br><br>
+
+        <label>Capacity:</label><br>
+        <input type="number" name="capacity" required><br><br>
+
+        <button type="submit">Add Room</button>
+
+    </form>
+
+    <hr>
+
+    <h3>Room List</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Room Number</th>
+            <th>Capacity</th>
+            <th>Occupied</th>
+            <th>Status</th>
+        </tr>
+
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room["room_no"] }}</td>
+            <td>{{ room["capacity"] }}</td>
+            <td>{{ room["occupied"] }}</td>
+            <td>{{ room["status"] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">Back to Dashboard</a>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fees - Hostel & PG Management</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+
+    <h2>Fee Management</h2>
+
+    <hr>
+
+    <h3>Add Fee</h3>
+
+    <form method="POST" action="/add_fee">
+
+        <label>Student Name:</label><br>
+
+        <input
+            type="text"
+            name="student_name"
+            required
+        >
+
+        <br><br>
+
+        <label>Amount:</label><br>
+
+        <input
+            type="number"
+            name="amount"
+            min="0"
+            step="0.01"
+            required
+        >
+
+        <br><br>
+
+        <label>Payment Date:</label><br>
+
+        <input
+            type="date"
+            name="payment_date"
+        >
+
+        <br><br>
+
+        <label>Status:</label><br>
+
+        <select name="status">
+
+            <option value="Pending">
+                Pending
+            </option>
+
+            <option value="Paid">
+                Paid
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Add Fee
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h3>Fee List</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Student Name</th>
+
+            <th>Amount</th>
+
+            <th>Payment Date</th>
+
+            <th>Status</th>
+
+        </tr>
+
+        {% for fee in fees %}
+
+        <tr>
+
+            <td>
+                {{ fee["id"] }}
+            </td>
+
+            <td>
+                {{ fee["student_name"] }}
+            </td>
+
+            <td>
+                ₹{{ fee["amount"] }}
+            </td>
+
+            <td>
+                {{ fee["payment_date"] }}
+            </td>
+
+            <td>
+                {{ fee["status"] }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>

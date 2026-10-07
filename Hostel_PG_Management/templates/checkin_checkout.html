@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check-In / Check-Out</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+    <h2>Check-In / Check-Out</h2>
+
+    <hr>
+
+    <h3>Student Check-In / Check-Out</h3>
+
+    <form method="POST" action="/checkin_checkout">
+
+        <label>Student Name:</label><br>
+        <input type="text" name="student_name" required>
+
+        <br><br>
+
+        <label>Room Number:</label><br>
+        <input type="text" name="room_no" required>
+
+        <br><br>
+
+        <label>Date:</label><br>
+        <input type="date" name="date" required>
+
+        <br><br>
+
+        <label>Action:</label><br>
+
+        <select name="action" required>
+            <option value="Check-In">Check-In</option>
+            <option value="Check-Out">Check-Out</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <hr>
+
+    <h3>Check-In / Check-Out History</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Room Number</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+
+        {% for record in records %}
+
+        <tr>
+            <td>{{ record["id"] }}</td>
+            <td>{{ record["student_name"] }}</td>
+            <td>{{ record["room_no"] }}</td>
+            <td>{{ record["date"] }}</td>
+            <td>{{ record["action"] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">
+        Back to Dashboard
+    </a>
+
+</body>
+</html>

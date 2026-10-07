@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Complaints - Hostel & PG Management</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+
+    <h2>Complaint Management</h2>
+
+    <hr>
+
+    <h3>Add Complaint</h3>
+
+    <form method="POST" action="/add_complaint">
+
+        <label>Student Name:</label><br>
+        <input type="text" name="student_name" required>
+
+        <br><br>
+
+        <label>Complaint:</label><br>
+
+        <textarea
+            name="complaint"
+            rows="5"
+            cols="40"
+            required
+        ></textarea>
+
+        <br><br>
+
+        <label>Date:</label><br>
+        <input type="date" name="date">
+
+        <br><br>
+
+        <button type="submit">
+            Submit Complaint
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h3>Complaint List</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Student Name</th>
+
+            <th>Complaint</th>
+
+            <th>Status</th>
+
+            <th>Date</th>
+
+            <th>Update Status</th>
+
+        </tr>
+
+        {% for complaint in complaints %}
+
+        <tr>
+
+            <td>
+                {{ complaint["id"] }}
+            </td>
+
+            <td>
+                {{ complaint["student_name"] }}
+            </td>
+
+            <td>
+                {{ complaint["complaint"] }}
+            </td>
+
+            <td>
+                {{ complaint["status"] }}
+            </td>
+
+            <td>
+                {{ complaint["date"] }}
+            </td>
+
+            <td>
+
+                <form
+                    method="POST"
+                    action="/update_complaint/{{ complaint['id'] }}"
+                >
+
+                    <select name="status">
+
+                        <option value="Pending"
+                        {% if complaint["status"] == "Pending" %}
+                            selected
+                        {% endif %}>
+                            Pending
+                        </option>
+
+                        <option value="In Progress"
+                        {% if complaint["status"] == "In Progress" %}
+                            selected
+                        {% endif %}>
+                            In Progress
+                        </option>
+
+                        <option value="Resolved"
+                        {% if complaint["status"] == "Resolved" %}
+                            selected
+                        {% endif %}>
+                            Resolved
+                        </option>
+
+                    </select>
+
+                    <button type="submit">
+                        Update
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>

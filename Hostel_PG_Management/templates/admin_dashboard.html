@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Admin Dashboard</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #b00000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+
+        .emergency-box {
+            background-color: #ffe6e6;
+            border: 2px solid red;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .emergency-title {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- ================================= -->
+    <!-- ADMIN DASHBOARD HEADER -->
+    <!-- ================================= -->
+
+    <h1>Hostel & PG Management System</h1>
+
+    <h2>Admin / Warden Dashboard</h2>
+
+    <hr>
+
+    <h3>Welcome, Admin!</h3>
+
+
+    <!-- ================================= -->
+    <!-- EMERGENCY ALERTS -->
+    <!-- ================================= -->
+
+    <div class="emergency-box">
+
+        <div class="emergency-title">
+            🚨 Emergency Alerts
+        </div>
+
+        <br>
+
+
+        {% if emergency_alerts %}
+
+        <table>
+
+            <tr>
+
+                <th>Student</th>
+
+                <th>Emergency Message</th>
+
+                <th>Date</th>
+
+                <th>Status</th>
+
+            </tr>
+
+
+            {% for alert in emergency_alerts %}
+
+            <tr>
+
+                <td>
+                    {{ alert["student_name"] }}
+                </td>
+
+                <td>
+                    {{ alert["message"] }}
+                </td>
+
+                <td>
+                    {{ alert["date"] }}
+                </td>
+
+                <td>
+                    🚨 {{ alert["status"] }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+
+        {% else %}
+
+        <p>
+            ✅ No emergency alerts.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- ================================= -->
+    <!-- ADMIN MODULES -->
+    <!-- ================================= -->
+
+    <h3>Management</h3>
+
+
+    <!-- Students -->
+
+    <a href="/students">
+
+        <button>
+            Students
+        </button>
+
+    </a>
+
+
+    <!-- Rooms -->
+
+    <a href="/rooms">
+
+        <button>
+            Rooms
+        </button>
+
+    </a>
+
+
+    <!-- Room Allocation -->
+
+    <a href="/room_allocation">
+
+        <button>
+            Room Allocation
+        </button>
+
+    </a>
+
+
+    <!-- Check-In / Check-Out -->
+
+    <a href="/checkin_checkout">
+
+        <button>
+            Check-In / Check-Out
+        </button>
+
+    </a>
+
+
+    <!-- Attendance -->
+
+    <a href="/attendance">
+
+        <button>
+            Attendance
+        </button>
+
+    </a>
+
+
+    <!-- Fees -->
+
+    <a href="/fees">
+
+        <button>
+            Fees
+        </button>
+
+    </a>
+
+
+    <!-- Complaints -->
+
+    <a href="/complaints">
+
+        <button>
+            Complaints
+        </button>
+
+    </a>
+
+
+    <!-- Reports -->
+
+    <a href="/reports">
+
+        <button>
+            Reports
+        </button>
+
+    </a>
+
+
+    <br><br>
+
+
+    <!-- ================================= -->
+    <!-- LOGOUT -->
+    <!-- ================================= -->
+
+    <a href="/">
+
+        <button>
+            Logout
+        </button>
+
+    </a>
+
+
+</body>
+
+</html>

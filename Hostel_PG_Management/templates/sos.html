@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>SOS Emergency Help</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #b00000;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            color: #b00000;
+        }
+
+        .sos-box {
+            background-color: #ffe6e6;
+            border: 2px solid red;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            margin-top: 5px;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        button {
+            padding: 12px 18px;
+            margin: 8px 5px 8px 0;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        .emergency-button {
+            background-color: red;
+            color: white;
+        }
+
+        .call-button {
+            background-color: #008000;
+            color: white;
+        }
+
+        .sms-button {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .info-box {
+            background-color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>🚨 SOS Emergency Help</h1>
+
+    <h2>Hostel & PG Management System</h2>
+
+    <hr>
+
+
+    <div class="sos-box">
+
+        <h3>🚨 Send Emergency Alert</h3>
+
+
+        <form method="POST" action="/sos">
+
+            <label>Student Name:</label>
+
+            <br>
+
+            <input
+                type="text"
+                name="student_name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <br><br>
+
+
+            <label>Emergency Message:</label>
+
+            <br>
+
+            <textarea
+                name="message"
+                rows="5"
+                placeholder="Describe your emergency..."
+                required
+            ></textarea>
+
+            <br><br>
+
+
+            <button
+                type="submit"
+                class="emergency-button"
+            >
+                🚨 SEND EMERGENCY ALERT
+            </button>
+
+        </form>
+
+
+        <hr>
+
+
+        <h3>📞 Contact Admin / Warden</h3>
+
+        <p>
+            For immediate help, you can contact the Admin / Warden.
+        </p>
+
+
+        <!-- CALL ADMIN -->
+
+        <a href="tel:9597591846">
+
+            <button
+                type="button"
+                class="call-button"
+            >
+                📞 CALL ADMIN
+            </button>
+
+        </a>
+
+
+        <!-- SMS ADMIN -->
+
+        <a href="sms:9597591846?body=Emergency! A student needs immediate help.">
+
+            <button
+                type="button"
+                class="sms-button"
+            >
+                💬 SMS ADMIN
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <!-- EMERGENCY INFORMATION -->
+
+    <div class="info-box">
+
+        <h3>Emergency Contacts</h3>
+
+        <p>👨‍💼 Warden / Admin: Contact through the buttons above</p>
+
+        <p>🚑 Ambulance: 108</p>
+
+        <p>🚓 Police: 100</p>
+
+        <p>🔥 Fire: 101</p>
+
+    </div>
+
+
+    <br>
+
+
+    <a href="/student_dashboard">
+
+        <button type="button">
+            ← Back to Student Dashboard
+        </button>
+
+    </a>
+
+
+</body>
+
+</html>

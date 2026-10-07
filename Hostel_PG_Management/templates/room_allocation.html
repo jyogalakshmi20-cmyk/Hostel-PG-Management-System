@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Room Allocation - Hostel & PG Management</title>
+</head>
+
+<body>
+
+    <h1>Hostel & PG Management System</h1>
+
+    <h2>Room Allocation</h2>
+
+    <hr>
+
+    <h3>Allocate Room</h3>
+
+    <form method="POST" action="/allocate_room">
+
+        <label>Student Name:</label><br>
+
+        <input
+            type="text"
+            name="student_name"
+            required
+        >
+
+        <br><br>
+
+        <label>Room Number:</label><br>
+
+        <input
+            type="text"
+            name="room_no"
+            required
+        >
+
+        <br><br>
+
+        <label>Allocation Date:</label><br>
+
+        <input
+            type="date"
+            name="allocation_date"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Allocate Room
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h3>Room Allocation List</h3>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Room Number</th>
+            <th>Allocation Date</th>
+        </tr>
+
+        {% for allocation in allocations %}
+
+        <tr>
+
+            <td>
+                {{ allocation["id"] }}
+            </td>
+
+            <td>
+                {{ allocation["student_name"] }}
+            </td>
+
+            <td>
+                {{ allocation["room_no"] }}
+            </td>
+
+            <td>
+                {{ allocation["allocation_date"] }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/admin_dashboard">
+        Back to Dashboard
+    </a>
+
+</body>
+
+</html>
